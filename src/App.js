@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import Options from './components/Options';
+import Players from './components/Players';
+import Player from './components/Player';
+import useAppState from './useAppState';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App () {
+    const [state, updatePlayers, updatePlayer] = useAppState();
+
+    const players = state.players.map((player) => {
+        return (
+            <Player
+                key={player.id}
+                player={player}
+                onColorChange={(color) => updatePlayer(player.id, 'color', color)}
+                onLifeChange={(life) => updatePlayer(player.id, 'life', life)}
+                onWinsChange={(wins) => updatePlayer(player.id, 'wins', wins)}
+                onEnergyChange={(energy) => updatePlayer(player.id, 'energy', energy)}
+            />
+        );
+    });
+
+    return (
+        <div className="board">
+            <Options
+                players={state.players}
+                onPlayersChange={updatePlayers}
+            />
+
+            <Players playersCount={state.players.length}>
+                {players}
+            </Players>
+        </div>
+    );
 }
 
 export default App;
