@@ -1,12 +1,31 @@
+import { useEffect } from 'react';
 import { addPlayer, removePlayer, newGame, resetWins } from './OptionsUtils';
+import Timer from './Timer';
+import useTimerState from './TimerState';
 
 function Options (props) {
     const { players, onPlayersChange } = props;
+    const { timer, toggleTimer, increaseTimer, resetTimer } = useTimerState();
 
     const onAddPlayer = () => onPlayersChange(addPlayer(players));
     const onRemovePlayer = () => onPlayersChange(removePlayer(players));
-    const onNewGame = () => onPlayersChange(newGame(players));
     const onResetWins = () => onPlayersChange(resetWins(players));
+    const onNewGame = () => {
+        onPlayersChange(newGame(players));
+        resetTimer();
+    };
+
+    useEffect(() => {
+        let t;
+
+        if (timer.running) {
+            t = setTimeout(() => {
+                increaseTimer();
+            }, 1000);
+        }
+
+        return () => clearTimeout(t);
+    });
 
     return (
         <div className="game-options-container">
@@ -16,9 +35,7 @@ function Options (props) {
             </div>
 
             <div className="game-option">
-                <div className="timer-container">
-                    <div className="timer">00:00:00</div><button className="btn-sm">Start</button>
-                </div>
+                <Timer timer={timer} onTimerToggle={toggleTimer} />
             </div>
 
             <div className="game-option option-group">

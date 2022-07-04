@@ -1,8 +1,8 @@
-import './App.css';
+import './styles/App.css';
 import Options from './components/Options';
 import Players from './components/Players';
 import Player from './components/Player';
-import useAppState from './useAppState';
+import useAppState from './AppState';
 
 function App () {
     const [state, updatePlayers, updatePlayer] = useAppState();
