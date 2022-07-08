@@ -1,11 +1,13 @@
 import { nextColor } from '../ColorsUtils';
 
-function Player (props) {
+function Player ({ player, onPlayerChange }) {
     // Properties
-    const { name, life, color, wins, energy } = props.player;
+    const { id, name, life, color, wins, energy } = player;
 
-    // Actions
-    const { onColorChange, onWinsChange, onLifeChange, onEnergyChange } = props;
+    const onColorChange = (color) => onPlayerChange(id, { ...player, color });
+    const onEnergyChange = (energy) => onPlayerChange(id, { ...player, energy });
+    const onWinsChange = (wins) => onPlayerChange(id, { ...player, wins });
+    const onLifeChange = (life) => onPlayerChange(id, { ...player, life });
 
     const className = ['player', color].join(' ');
 

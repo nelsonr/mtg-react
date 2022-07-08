@@ -1,14 +1,27 @@
 import { useEffect } from 'react';
-import { addPlayer, removePlayer, newGame, resetWins } from './OptionsUtils';
 import Timer from './Timer';
 import useTimerState from './TimerState';
 
-function Options (props) {
-    const { players, onPlayersChange } = props;
+function newGame (players) {
+    return players.map((player) => {
+        player.life = 20;
+        player.energy = 0;
+
+        return player;
+    });
+}
+
+function resetWins (players) {
+    return players.map((player) => {
+        player.wins = 0;
+
+        return player;
+    });
+}
+
+function Options ({ players, onAddPlayer, onRemovePlayer, onPlayersChange }) {
     const { timer, toggleTimer, increaseTimer, resetTimer } = useTimerState();
 
-    const onAddPlayer = () => onPlayersChange(addPlayer(players));
-    const onRemovePlayer = () => onPlayersChange(removePlayer(players));
     const onResetWins = () => onPlayersChange(resetWins(players));
     const onNewGame = () => {
         onPlayersChange(newGame(players));

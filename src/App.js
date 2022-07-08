@@ -5,17 +5,14 @@ import Player from './components/Player';
 import useAppState from './AppState';
 
 function App () {
-    const [state, updatePlayers, updatePlayer] = useAppState();
+    const [state, updatePlayers, updatePlayer, addPlayer, removePlayer] = useAppState();
 
     const players = state.players.map((player) => {
         return (
             <Player
                 key={player.id}
                 player={player}
-                onColorChange={(color) => updatePlayer(player.id, 'color', color)}
-                onLifeChange={(life) => updatePlayer(player.id, 'life', life)}
-                onWinsChange={(wins) => updatePlayer(player.id, 'wins', wins)}
-                onEnergyChange={(energy) => updatePlayer(player.id, 'energy', energy)}
+                onPlayerChange={updatePlayer}
             />
         );
     });
@@ -25,6 +22,8 @@ function App () {
             <Options
                 players={state.players}
                 onPlayersChange={updatePlayers}
+                onAddPlayer={addPlayer}
+                onRemovePlayer={removePlayer}
             />
 
             <Players playersCount={state.players.length}>

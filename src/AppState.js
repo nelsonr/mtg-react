@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { randomColor } from './ColorsUtils';
 
 const defaultState = {
     players: [
@@ -24,23 +25,42 @@ const defaultState = {
 function useAppState (initialState = defaultState) {
     const [state, setState] = useState(initialState);
 
-    function updatePlayer (playerId, prop, newValue) {
+    const updatePlayer = (playerId, newPlayerState) => {
         const players = state.players.map((player) => {
             if (player.id === playerId) {
-                player[prop] = newValue;
+                return { ...player, ...newPlayerState };
             }
 
             return player;
         });
 
         setState({ players });
-    }
+    };
 
-    function updatePlayers (players) {
+    const updatePlayers = (players) => {
         setState({ players });
-    }
+    };
 
-    return [state, updatePlayers, updatePlayer];
+    const addPlayer = () => {
+        const players = [...state.players, {
+            id: state.players.length,
+            name: `Player ${state.players.length + 1}`,
+            color: randomColor(),
+            life: 20,
+            wins: 0,
+            energy: 0
+        }];
+
+        setState({ players });
+    };
+
+    const removePlayer = () => {
+        const players = state.players.slice(0, state.players.length - 1);
+
+        setState({ players });
+    };
+
+    return [state, updatePlayers, updatePlayer, addPlayer, removePlayer];
 }
 
 export default useAppState;
