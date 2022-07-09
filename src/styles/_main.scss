@@ -167,7 +167,6 @@ main,
 
   .timer+button {
     display: inline-block;
-    width: 54px;
   }
 }
 
@@ -185,7 +184,6 @@ main,
   align-items: center;
   justify-content: space-around;
   box-sizing: border-box;
-  max-width: 100%;
   padding-left: 1em;
   padding-right: 1em;
 
@@ -451,6 +449,7 @@ main,
   text-transform: uppercase;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
+  z-index: 1;
 
   @include no-text-selection();
 
