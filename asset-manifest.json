@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/mtg-react/static/css/main.47986e36.css",
+    "main.js": "/mtg-react/static/js/main.8ac3ac5e.js",
+    "static/js/787.c9cfb91c.chunk.js": "/mtg-react/static/js/787.c9cfb91c.chunk.js",
+    "static/media/bg.png": "/mtg-react/static/media/bg.a8311fe3c0a16cef12a5.png",
+    "static/media/laurel-wreath.png": "/mtg-react/static/media/laurel-wreath.3127dd4e20519fe71fe9.png",
+    "static/media/Beleren.woff": "/mtg-react/static/media/Beleren.6b67b366afce6a818f69.woff",
+    "static/media/mana-white.png": "/mtg-react/static/media/mana-white.5612ff61c09f3d2e6864.png",
+    "static/media/mana-black.png": "/mtg-react/static/media/mana-black.d0ba75196263fa60557f.png",
+    "static/media/mana-red.png": "/mtg-react/static/media/mana-red.496bb0b64f0faad2cdf1.png",
+    "static/media/mana-green.png": "/mtg-react/static/media/mana-green.b2d821daf7e07e7b976a.png",
+    "static/media/mana-blue.png": "/mtg-react/static/media/mana-blue.5778e1cd87beca81f66d.png",
+    "static/media/DroidSansMono-webfont.woff": "/mtg-react/static/media/DroidSansMono-webfont.879ae9351b71813c02f8.woff",
+    "index.html": "/mtg-react/index.html",
+    "main.47986e36.css.map": "/mtg-react/static/css/main.47986e36.css.map",
+    "main.8ac3ac5e.js.map": "/mtg-react/static/js/main.8ac3ac5e.js.map",
+    "787.c9cfb91c.chunk.js.map": "/mtg-react/static/js/787.c9cfb91c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47986e36.css",
+    "static/js/main.8ac3ac5e.js"
+  ]
+}
