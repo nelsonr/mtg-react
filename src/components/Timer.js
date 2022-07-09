@@ -4,15 +4,11 @@ function Timer ({ timer, onTimerToggle }) {
     };
 
     const timerButtonText = () => {
-        if (timer.seconds < 1) {
-            return 'start';
-        }
-
         if (timer.running) {
-            return 'pause';
+            return 'Stop';
         }
 
-        return 'resume';
+        return 'Start';
     };
 
     return (

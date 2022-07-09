@@ -1,7 +1,7 @@
-import './styles/App.css';
-import Options from './components/Options';
-import Players from './components/Players';
-import Player from './components/Player';
+import '../styles/App.scss';
+import Options from './Options';
+import Players from './Players';
+import Player from './Player';
 import useAppState from './AppState';
 
 function App () {

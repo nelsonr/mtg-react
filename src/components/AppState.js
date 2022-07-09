@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { randomColor } from './ColorsUtils';
+import { randomColor } from '../ColorsUtils';
 
 const defaultState = {
     players: [
